@@ -1,0 +1,14 @@
+body{
+    background-color: #cca3ed;
+}
+h1{
+    text-align: center;
+    font-family: sans-serif, Arial, Helvetica;
+}
+.highlight{
+    background-color: yellow;
+}
+.error{
+    background-color: lightcoral;
+    border: red;
+}

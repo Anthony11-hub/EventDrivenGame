@@ -15,7 +15,7 @@ let startTime = Date.now();
 //page elements
 const quoteElement = document.getElementById('quote');
 const messageElement = document.getElementById('message');
-const typedvalueElement = document.getElementById('types-value');
+const typedvalueElement = document.getElementById('typed-value');
 
 document.getElementById('start').addEventListener('click', () =>{
     //get a quote
@@ -28,7 +28,7 @@ document.getElementById('start').addEventListener('click', () =>{
 
     //UI updates
     //Create an Array of span elements so we can set a class -- contains each word inside a span element
-    const spanWords = words.map(function(word) { return '<span>${word}</span>'});//allows us to highlight word on display
+    const spanWords = words.map(function(word) { return `<span>${word} </span>`});//allows us to highlight word on display
     //convert into String and set innerHTML on quote display
     quoteElement.innerHTML = spanWords.join('');//join the array ot create a string which we can update in the innerHtml on quoteElement
     //Highlight the first word
@@ -51,13 +51,13 @@ typedvalueElement.addEventListener('input', () => {
     //Get the current word
     const currentWord = words[wordIndex];
     //get the current value
-    const typedValue = typedvalueElement;
+    const typedValue = typedvalueElement.value;
 
     if(typedValue === currentWord && wordIndex === words.length -1) {
         //end of sentence
         //Display success
         const elapsedTime = new Date().getTime() - startTime;
-        const message = `CONGRATULATIONS! You finished in ${elapsedTime / 1000}`;
+        const message = `CONGRATULATIONS! You finished in ${elapsedTime / 1000} seconds`;
         messageElement.innerText = message;
     }else if (typedValue.endsWith(' ') && typedValue.trim() === currentWord){
         //end of word
